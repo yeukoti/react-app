@@ -7,6 +7,8 @@ function App() {
   const [ profile, setProfile ] = useState([]);
 
   const login = useGoogleLogin({
+    clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+    redirectUri: process.env.REACT_APP_GOOGLE_REDIRECT_URI,
       onSuccess: (codeResponse) => setUser(codeResponse),
       onError: (error) => console.log('Login Failed:', error)
   });
